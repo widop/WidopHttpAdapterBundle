@@ -14,7 +14,7 @@
         "symfony/framework-bundle": "2.*"
     },
     "autoload": {
-        "psr-0": { "Widop\\HttpAdatperBundle": "" }
+        "psr-0": { "Widop\\HttpAdapterBundle": "" }
     },
     "target-dir": "Widop/HttpAdapterBundle"
 }
