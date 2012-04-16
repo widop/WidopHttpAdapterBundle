@@ -1,4 +1,4 @@
-The WidopHttpAdapterBundle allow to issue HTTP request.
+The bundle allows to issue HTTP request.
 
 Currently, the adapters supported are:
 
