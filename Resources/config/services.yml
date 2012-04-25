@@ -1,6 +1,6 @@
 parameters:
     widop_http_adapter.buzz.class: Widop\HttpAdapterBundle\Model\BuzzHttpAdapter
-    widop_http_adapter.curl.class: Widop\httpAdapterBundle\Model\CurlHttpAdapter
+    widop_http_adapter.curl.class: Widop\HttpAdapterBundle\Model\CurlHttpAdapter
 
 services:
     widop_http_adapter.buzz:
