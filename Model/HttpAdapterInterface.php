@@ -21,9 +21,12 @@ interface HttpAdapterInterface
     /**
      * Gets the content fetched from the given URL.
      *
+     * @param string $url     The URL to request.
+     * @param array  $headers HTTP headers (optionnal).
+     *
      * @return string
      */
-    function getContent($url);
+    function getContent($url, array $headers = array());
 
     /**
      * Gets the name of the Http adapter.
