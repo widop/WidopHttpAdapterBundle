@@ -21,13 +21,17 @@ class CurlHttpAdapter implements HttpAdapterInterface
     /**
      * {@inheritdoc}
      */
-    public function getContent($url)
+    public function getContent($url, array $headers = array())
     {
         if (!function_exists('curl_init')) {
             throw new \Exception('cURL has to be enabled.');
         }
 
         $curl = curl_init();
+
+        if (!empty($headers)) {
+            curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+        }
 
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($curl, CURLOPT_URL, $url);
