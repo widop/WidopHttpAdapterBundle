@@ -21,7 +21,7 @@ interface HttpAdapterInterface
     /**
      * Gets the content fetched from the given URL.
      *
-     * @param string $url The URL to request.
+     * @param string $url     The URL to request.
      * @param array  $headers HTTP headers (optionnal).
      *
      * @return string
