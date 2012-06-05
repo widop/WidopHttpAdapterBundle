@@ -11,7 +11,8 @@
         }
     ],
     "require": {
-        "symfony/framework-bundle": "2.*"
+        "symfony/framework-bundle": "2.*",
+        "kriswallsmith/buzz": "dev-master"
     },
     "autoload": {
         "psr-0": { "Widop\\HttpAdapterBundle": "" }
