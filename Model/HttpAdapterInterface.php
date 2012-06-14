@@ -29,6 +29,17 @@ interface HttpAdapterInterface
     function getContent($url, array $headers = array());
 
     /**
+     * Gets the content fetched from the given url & the POST datas.
+     *
+     * @param string $url     The URL to request.
+     * @param array  $headers HTTP headers (optional).
+     * @param string $content The POST content.
+     *
+     * @return string
+     */
+    function postContent($url, array $headers = array(), $content = '');
+
+    /**
      * Gets the name of the Http adapter.
      *
      * @return string
