@@ -14,7 +14,8 @@
         "symfony/framework-bundle": "2.*"
     },
     "suggest": {
-        "kriswallsmith/buzz": "Allows you to use Buzz adapter"
+        "kriswallsmith/buzz": "Allows you to use Buzz adapter",
+        "ext-curl"          : "Allows you to use cURL adapter"
     },
     "autoload": {
         "psr-0": { "Widop\\HttpAdapterBundle": "" }
