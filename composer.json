@@ -11,8 +11,10 @@
         }
     ],
     "require": {
-        "symfony/framework-bundle": "2.*",
-        "kriswallsmith/buzz": "dev-master"
+        "symfony/framework-bundle": "2.*"
+    },
+    "suggest": {
+        "kriswallsmith/buzz": "Allows you to use Buzz adapter"
     },
     "autoload": {
         "psr-0": { "Widop\\HttpAdapterBundle": "" }
