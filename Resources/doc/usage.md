@@ -1,25 +1,51 @@
 # Usage
 
-In order to use an adapter. You need to request the associated service.
+## Request your Adapter
 
-## Buzz
+In order to use an adapter, you need to request the associated service:
 
-``` php
-// Request the buzz http adapter
-$buzzHttpAdapter = $this->get('widop_http_adapter.buzz');
-
-// Issue an http request
-$content = $buzzHttpAdapter->getContent($url);
-```
-
-## cURL
+### Buzz
 
 ``` php
-// Request the curl http adapter
-$curlHttpAdapter = $this->get('widop_http_adapter.curl');
-
-// Issue an http request
-$content = $curlHttpAdapter->getContent($url);
+$buzzHttpAdapter = $this->container->get('widop_http_adapter.buzz');
 ```
 
-That's all !
+### cURL
+
+``` php
+$curlHttpAdapter = $this->container->get('widop_http_adapter.curl');
+```
+
+## Make a GET request
+
+Each adapter allows you to make a GET request:
+
+``` php
+$content = $httpAdapter->getContent($url);
+```
+
+If you would like to pass custom headers, you can use the second argument:
+
+``` php
+$content = $httpAdapter->getContent($url, $headers);
+```
+
+## Make a POST request
+
+Each adapter allows you to make a POST request:
+
+``` php
+$content = $httpAdapter->postContent($url);
+```
+
+If you would like to pass custom headers, you can use the second argument:
+
+``` php
+$content = $httpAdapter->postContent($url, $headers);
+```
+
+If you would like to pass POST datas, you use the third argument:
+
+``` php
+$content = $httpAdapter->getContent($url, $headers, $data);
+```

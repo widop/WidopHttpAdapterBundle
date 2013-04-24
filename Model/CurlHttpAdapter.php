@@ -1,9 +1,9 @@
 <?php
 
 /*
- * This file is part of the Widop package.
+ * This file is part of the Wid'op package.
  *
- * (c) Widop <contact@widop.com>
+ * (c) Wid'op <contact@widop.com>
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code.
@@ -35,7 +35,7 @@ class CurlHttpAdapter implements HttpAdapterInterface
 
         curl_close($curl);
 
-        if ($content === null) {
+        if ($content === false) {
             throw new \Exception('An error occured when fetching the URL via cURL.');
         }
 
@@ -62,7 +62,7 @@ class CurlHttpAdapter implements HttpAdapterInterface
 
         curl_close($curl);
 
-        if ($content === null) {
+        if ($content === false) {
             throw new \Exception('An error occured when fetching the URL via cURL.');
         }
 
@@ -80,16 +80,11 @@ class CurlHttpAdapter implements HttpAdapterInterface
     /**
      * Initializes cUrl.
      *
-     * @return ressource
+     * @return resource The curl resource.
      */
     protected function initCurl()
     {
-        if (!function_exists('curl_init')) {
-            throw new \Exception('cURL has to be enabled.');
-        }
-
         $curl = curl_init();
-
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 
         return $curl;

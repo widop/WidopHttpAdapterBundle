@@ -1,89 +1,75 @@
 # Installation
 
-## Symfony 2.1.*
+## Symfony >= 2.1.*
 
-### Add the WidopHttpAdapterBundle to your composer configuration
+Require the bundle in your composer.json file (**You should choose the tag/branch that fits to your needs**):
 
-Add the bundle to the require section of your `composer.json`
-
-``` json
+```
 {
     "require": {
-        "widop/http-adapter-bundle": "dev-master"
+        "widop/http-adapter-bundle": "*",
     }
 }
 ```
 
-Run the composer update command
-
-``` bash
-$ php composer.phar update
-```
-
-### Add the WidopHttpAdapterBundle to your application kernel
+Register the bundle:
 
 ``` php
-<?php
 // app/AppKernel.php
 
 public function registerBundles()
 {
     return array(
-        //..
         new Widop\HttpAdapterBundle\WidopHttpAdapterBundle(),
+        // ...
     );
 }
 ```
 
-## Symfony 2.0.*
+Install the bundle:
 
-### Add the WidopHttpAdapterBundle to your vendor/bundles/ directory
+```
+$ composer update
+```
 
-#### Using the vendors script
+## Symfony <= 2.0.*
 
-Add the following lines in your ``deps`` file
+Add Wid'op Http Adapter bundle (**You should choose the tag/branch that fits to your needs**):
 
 ```
 [WidopHttpAdapterBundle]
     git=http://github.com/widop/WidopHttpAdapterBundle.git
     target=bundles/Widop/HttpAdapterBundle
+    version=1.0.0
 ```
 
-Run the vendors script
-
-``` bash
-$ php bin/vendors update
-```
-
-#### Using submodules
-
-``` bash
-$ git submodule add http://github.com/widop/WidopHttpAdapterBundle.git vendor/bundles/Widop/HttpAdapter
-```
-
-### Add the Widop namespace to your autoloader
+Autoload the Wid'op Http Adapter bundle namespace:
 
 ``` php
-<?php
 // app/autoload.php
 
 $loader->registerNamespaces(array(
-    //..
-    'Widop' => __DIR__.'/../vendor/bundles',
+    'Widop\\HttpAdapterBundle' => __DIR__.'/../vendor/bundles',
+    // ...
 );
 ```
 
-### Add the WidopHttpAdapterBundle to your application kernel
+Register the bundle:
 
 ``` php
-<?php
 // app/AppKernel.php
 
 public function registerBundles()
 {
     return array(
-        //..
         new Widop\HttpAdapterBundle\WidopHttpAdapterBundle(),
+        // ...
     );
 }
+```
+
+Run the vendors script:
+
+``` bash
+$ php bin/vendors install
 ```
