@@ -1,9 +1,9 @@
 <?php
 
 /*
- * This file is part of the Widop package.
+ * This file is part of the Wid'op package.
  *
- * (c) Widop <contact@widop.com>
+ * (c) Wid'op <contact@widop.com>
  *
  * For the full copyright and license information, please read the LICENSE
  * file that was distributed with this source code.
@@ -20,9 +20,7 @@ use Buzz\Browser;
  */
 class BuzzHttpAdapter implements HttpAdapterInterface
 {
-    /**
-     * @var \Buzz\Browser The buzz browser.
-     */
+    /** @var \Buzz\Browser */
     private $browser;
 
     /**
@@ -33,10 +31,10 @@ class BuzzHttpAdapter implements HttpAdapterInterface
     public function __construct(Browser $browser = null)
     {
         if ($browser === null) {
-            $this->browser = new Browser();
-        } else {
-            $this->browser = $browser;
+            $browser = new Browser();
         }
+
+        $this->browser = $browser;
     }
 
     /**
@@ -45,9 +43,8 @@ class BuzzHttpAdapter implements HttpAdapterInterface
     public function getContent($url, array $headers = array())
     {
         $response = $this->browser->get($url, $headers);
-        $content  = $response->getContent();
 
-        return $content;
+        return $response->getContent();
     }
 
     /**
@@ -56,9 +53,8 @@ class BuzzHttpAdapter implements HttpAdapterInterface
     public function postContent($url, array $headers = array(), $content = '')
     {
         $reponse = $this->browser->post($url, $headers, $content);
-        $content = $reponse->getContent();
 
-        return $content;
+        return $reponse->getContent();
     }
 
     /**

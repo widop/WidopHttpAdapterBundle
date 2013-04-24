@@ -9,15 +9,5 @@
  * file that was distributed with this source code.
  */
 
-namespace Widop\HttpAdapterBundle;
-
-use Symfony\Component\HttpKernel\Bundle\Bundle;
-
-/**
- * Wid'op Http adpater bundle.
- *
- * @author GeLo <geloen.eric@gmail.com>
- */
-class WidopHttpAdapterBundle extends Bundle
-{
-}
+// Autoloads bundle.
+require __DIR__.'/../vendor/autoload.php';
