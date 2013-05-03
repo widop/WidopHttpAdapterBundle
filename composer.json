@@ -31,5 +31,10 @@
     "config": {
         "bin-dir": "bin"
     },
-    "target-dir": "Widop/HttpAdapterBundle"
+    "target-dir": "Widop/HttpAdapterBundle",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
 }
