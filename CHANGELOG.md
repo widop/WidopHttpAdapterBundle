@@ -2,6 +2,7 @@
 
 ### 1.0.1 (????-??-??)
 
-* 6fc5d3c - Add branch alias
+ * a3fcda0 - Fix branch alias
+ * 6fc5d3c - Add branch alias
 
 ### 1.0.0 (2013-04-24)
