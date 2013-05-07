@@ -8,10 +8,12 @@
     <parameters>
         <parameter key="widop_http_adapter.buzz.class">Widop\HttpAdapterBundle\Model\BuzzHttpAdapter</parameter>
         <parameter key="widop_http_adapter.curl.class">Widop\HttpAdapterBundle\Model\CurlHttpAdapter</parameter>
+        <parameter key="widop_http_adapter.stream.class">Widop\HttpAdapterBundle\Model\StreamHttpAdapter</parameter>
     </parameters>
 
     <services>
         <service id="widop_http_adapter.buzz" class="%widop_http_adapter.buzz.class%" />
         <service id="widop_http_adapter.curl" class="%widop_http_adapter.curl.class%" />
+        <service id="widop_http_adapter.stream" class="%widop_http_adapter.stream.class%" />
     </services>
 </container>

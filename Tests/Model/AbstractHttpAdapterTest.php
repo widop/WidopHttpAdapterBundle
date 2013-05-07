@@ -29,6 +29,22 @@ abstract class AbstractHttpAdapterTest extends \PHPUnit_Framework_TestCase
         unset($this->httpAdapter);
     }
 
+    /**
+     * Changes the visibility of an HTTP adapter method to public.
+     *
+     * @param string $methodName The method name.
+     *
+     * @return \ReflectionMethod A reflection method.
+     */
+    protected function getHttpAdapterReflectionMethod($methodName)
+    {
+        $method = new \ReflectionMethod(get_class($this->httpAdapter), $methodName);
+
+        $method->setAccessible(true);
+
+        return $method;
+    }
+
     abstract public function testName();
 
     public function testGetContentWithoutHeaders()
@@ -38,7 +54,10 @@ abstract class AbstractHttpAdapterTest extends \PHPUnit_Framework_TestCase
 
     public function testGetContentWithHeaders()
     {
-        $this->assertNotEmpty($this->httpAdapter->getContent('www.google.fr', array('Accept-Charset' => 'utf-8')));
+        $this->assertNotEmpty($this->httpAdapter->getContent(
+            'www.google.fr',
+            array('Accept-Charset' => 'utf-8', 'Accept-Language: en-US,en;q=0.8'))
+        );
     }
 
     /**
@@ -51,27 +70,30 @@ abstract class AbstractHttpAdapterTest extends \PHPUnit_Framework_TestCase
 
     public function testPostContentWithoutHeaders()
     {
-        $this->assertNotEmpty($this->httpAdapter->postContent('www.google.fr'));
+        $this->assertNotEmpty($this->httpAdapter->postContent('www.widop.com'));
     }
 
     public function testPostContentWithHeaders()
     {
-        $this->assertNotEmpty($this->httpAdapter->postContent('www.google.fr', array('Accept-Charset' => 'utf-8')));
+        $this->assertNotEmpty($this->httpAdapter->postContent(
+            'www.widop.com',
+            array('Accept-Charset' => 'utf-8', 'Accept-Language: en-US,en;q=0.8'))
+        );
     }
 
     public function testPostContentWithHeadersAndData()
     {
         $this->assertNotEmpty(
             $this->httpAdapter->postContent(
-                'www.google.fr',
-                array('Accept-Charset' => 'utf-8'),
+                'www.widop.fr',
+                array('Accept-Charset' => 'utf-8', 'Accept-Language: en-US,en;q=0.8'),
                 http_build_query(array('param' => 'value'))
             )
         );
     }
 
     /**
-     * @expectedException \Exception
+     * @expectedException \Widop\HttpAdapterBundle\Exception\HttpAdapterException
      */
     public function testPostContentWithInvalidUrl()
     {

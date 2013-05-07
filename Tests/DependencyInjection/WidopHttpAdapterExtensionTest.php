@@ -58,4 +58,12 @@ class WidopHttpAdapterExtensionTest extends \PHPUnit_Framework_TestCase
             $this->container->get('widop_http_adapter.curl')
         );
     }
+
+    public function testStreamService()
+    {
+        $this->assertInstanceOf(
+            'Widop\HttpAdapterBundle\Model\StreamHttpAdapter',
+            $this->container->get('widop_http_adapter.stream')
+        );
+    }
 }

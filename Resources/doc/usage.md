@@ -16,6 +16,12 @@ $buzzHttpAdapter = $this->container->get('widop_http_adapter.buzz');
 $curlHttpAdapter = $this->container->get('widop_http_adapter.curl');
 ```
 
+### Stream
+
+``` php
+$streamHttpAdapter = $this->container->get('widop_http_adapter.stream');
+```
+
 ## Make a GET request
 
 Each adapter allows you to make a GET request:
