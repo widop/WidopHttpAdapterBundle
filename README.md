@@ -6,6 +6,7 @@ The bundle allows to issue HTTP requests. Currently, the supported adapters are:
 
  - [Buzz](https://github.com/kriswallsmith/Buzz)
  - [cURL](http://curl.haxx.se/)
+ - [Stream](http://php.net/manual/en/book.stream.php)
 
 Documentation
 -------------
