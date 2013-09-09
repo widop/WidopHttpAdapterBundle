@@ -11,6 +11,8 @@
 
 namespace Widop\HttpAdapterBundle\Model;
 
+use Widop\HttpAdapterBundle\Exception\HttpAdapterException;
+
 /**
  * Curl Http adapter.
  *
@@ -23,23 +25,7 @@ class CurlHttpAdapter implements HttpAdapterInterface
      */
     public function getContent($url, array $headers = array())
     {
-        $curl = $this->initCurl();
-
-        curl_setopt($curl, CURLOPT_URL, $url);
-
-        if (!empty($headers)) {
-            curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
-        }
-
-        $content = curl_exec($curl);
-
-        curl_close($curl);
-
-        if ($content === false) {
-            throw new \Exception('An error occured when fetching the URL via cURL.');
-        }
-
-        return $content;
+        return $this->execute($url, $headers);
     }
 
     /**
@@ -47,24 +33,49 @@ class CurlHttpAdapter implements HttpAdapterInterface
      */
     public function postContent($url, array $headers = array(), $content = '')
     {
+        return $this->execute($url, $headers, $content, function ($curl) use ($content) {
+            curl_setopt($curl, CURLOPT_POST, true);
+            curl_setopt($curl, CURLOPT_POSTFIELDS, $content);
+        });
+    }
+
+    /**
+     * Fetches the content from an URL.
+     *
+     * @param string   $url      A valid URL.
+     * @param array    $headers  Http headers.
+     * @param string   $content  Http content (in case of POST method).
+     * @param callable $callback A callable function.
+     *
+     * @return string The response content.
+     */
+    protected function execute($url, array $headers = array(), $content = '', $callback = null)
+    {
         $curl = $this->initCurl();
+
+        $this->setHeaders($curl, $headers);
 
         curl_setopt($curl, CURLOPT_URL, $url);
 
-        if (!empty($headers)) {
-            curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
-        }
+        if ($callback !== null) {
+            if (!is_callable($callback)) {
+                throw HttpAdapterException::invalidCallback($callback);
+            }
 
-        curl_setopt($curl, CURLOPT_POST, true);
-        curl_setopt($curl, CURLOPT_POSTFIELDS, $content);
+            call_user_func($callback, $curl);
+        }
 
         $content = curl_exec($curl);
 
-        curl_close($curl);
-
         if ($content === false) {
-            throw new \Exception('An error occured when fetching the URL via cURL.');
+            $error = curl_error($curl);
+
+            curl_close($curl);
+
+            throw HttpAdapterException::cannotFetchUrl($url, $this->getName(), $error);
         }
+
+        curl_close($curl);
 
         return $content;
     }
@@ -88,5 +99,28 @@ class CurlHttpAdapter implements HttpAdapterInterface
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 
         return $curl;
+    }
+
+    /**
+     * Fixes the headers to match the cUrl format and set them.
+     *
+     * @param resource $curl    The curl resource.
+     * @param array    $headers An array of headers.
+     */
+    protected function setHeaders($curl, array $headers)
+    {
+        $fixedHeaders = array();
+
+        foreach ($headers as $key => $value) {
+            if (is_int($key)) {
+                $fixedHeaders[] = $value;
+            } else {
+                $fixedHeaders[] = $key.':'.$value;
+            }
+        }
+
+        if (!empty($fixedHeaders)) {
+            curl_setopt($curl, CURLOPT_HTTPHEADER, $fixedHeaders);
+        }
     }
 }

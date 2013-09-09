@@ -12,6 +12,7 @@
 namespace Widop\HttpAdapterBundle\Model;
 
 use Buzz\Browser;
+use Widop\HttpAdapterBundle\Exception\HttpAdapterException;
 
 /**
  * Buzz Http adapter.
@@ -42,7 +43,11 @@ class BuzzHttpAdapter implements HttpAdapterInterface
      */
     public function getContent($url, array $headers = array())
     {
-        $response = $this->browser->get($url, $headers);
+        try {
+            $response = $this->browser->get($url, $headers);
+        } catch (\Exception $e) {
+            throw HttpAdapterException::cannotFetchUrl($url, $this->getName(), $e->getMessage());
+        }
 
         return $response->getContent();
     }
@@ -52,9 +57,13 @@ class BuzzHttpAdapter implements HttpAdapterInterface
      */
     public function postContent($url, array $headers = array(), $content = '')
     {
-        $reponse = $this->browser->post($url, $headers, $content);
+        try {
+            $response = $this->browser->post($url, $headers, $content);
+        } catch (\Exception $e) {
+            throw HttpAdapterException::cannotFetchUrl($url, $this->getName(), $e->getMessage());
+        }
 
-        return $reponse->getContent();
+        return $response->getContent();
     }
 
     /**

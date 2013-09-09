@@ -32,4 +32,13 @@ class CurlHttpAdapterTest extends AbstractHttpAdapterTest
     {
         $this->assertSame('curl', $this->httpAdapter->getName());
     }
+
+    /**
+     * @expectedException \Widop\HttpAdapterBundle\Exception\HttpAdapterException
+     */
+    public function testExecuteThrowsInvalidCallbackException()
+    {
+        $this->getHttpAdapterReflectionMethod('execute')
+            ->invokeArgs($this->httpAdapter, array('foo', array(), '', 'tata'));
+    }
 }

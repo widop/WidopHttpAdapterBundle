@@ -14,6 +14,11 @@ namespace Widop\HttpAdapterBundle\Model;
 /**
  * Http adapter interface.
  *
+ * Headers may be passed using:
+ * - an indexed array (0 => 'Content-Type: html/text')
+ * - an associative array ('Content-Type' => 'html/text')
+ * - a mix of the two
+ *
  * @author GeLo <geloen.eric@gmail.com>
  */
 interface HttpAdapterInterface
@@ -24,7 +29,7 @@ interface HttpAdapterInterface
      * @param string $url     The URL to request.
      * @param array  $headers HTTP headers (optionnal).
      *
-     * @throws \Exception If an error occured.
+     * @throws \Widop\HttpAdapterBundle\Exception\HttpAdapterException If an error occured.
      *
      * @return string The fetched content.
      */
@@ -37,7 +42,7 @@ interface HttpAdapterInterface
      * @param array  $headers HTTP headers (optional).
      * @param string $content The POST content (optional).
      *
-     * @throws \Exception If an error occured.
+     * @throws \Widop\HttpAdapterBundle\Exception\HttpAdapterException If an error occured.
      *
      * @return string The fetched content.
      */
