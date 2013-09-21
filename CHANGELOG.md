@@ -1,6 +1,6 @@
 # CHANGELOG
 
-### 1.0.2 (????-??-??)
+### 1.0.2 (2013-09-22)
 
  * 45f58df - Add guzzle support
  * c47befd - Add stream support
