@@ -1,5 +1,9 @@
 # CHANGELOG
 
+### 1.1.0 (????-??-??)
+
+ * 61ad749 - Extra business classes
+
 ### 1.0.2 (2013-09-22)
 
  * 45f58df - Add guzzle support
