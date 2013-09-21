@@ -10,10 +10,12 @@ env:
     - SYMFONY_VERSION="2.0.*"
     - SYMFONY_VERSION="2.1.*"
     - SYMFONY_VERSION="2.2.*"
+    - SYMFONY_VERSION="2.3.*"
 
 before_script:
+    - composer self-update
     - composer require --no-update symfony/framework-bundle:${SYMFONY_VERSION}
-    - composer install --dev --prefer-source
+    - composer install --prefer-source
 
 script: bin/phpunit
 
