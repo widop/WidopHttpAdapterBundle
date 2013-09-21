@@ -59,6 +59,14 @@ class WidopHttpAdapterExtensionTest extends \PHPUnit_Framework_TestCase
         );
     }
 
+    public function testGuzzleService()
+    {
+        $this->assertInstanceOf(
+            'Widop\HttpAdapterBundle\Model\GuzzleHttpAdapter',
+            $this->container->get('widop_http_adapter.guzzle')
+        );
+    }
+
     public function testStreamService()
     {
         $this->assertInstanceOf(
