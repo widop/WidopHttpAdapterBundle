@@ -19,11 +19,13 @@
     },
     "require-dev": {
         "phpunit/phpunit": "3.7.*",
-        "kriswallsmith/buzz": "0.*"
+        "kriswallsmith/buzz": "0.*",
+        "guzzle/guzzle": "*"
     },
     "suggest": {
         "kriswallsmith/buzz": "Allows you to use Buzz adapter",
-        "ext-curl"          : "Allows you to use cURL adapter"
+        "ext-curl": "Allows you to use cURL adapter",
+        "guzzle/guzzle": "Allows you to use Guzzle adapter"
     },
     "autoload": {
         "psr-0": { "Widop\\HttpAdapterBundle": "" }

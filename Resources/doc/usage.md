@@ -16,6 +16,12 @@ $buzzHttpAdapter = $this->container->get('widop_http_adapter.buzz');
 $curlHttpAdapter = $this->container->get('widop_http_adapter.curl');
 ```
 
+### Guzzle
+
+``` php
+$guzzleHttpAdapter = $this->container->get('widop_http_adapter.guzzle');
+```
+
 ### Stream
 
 ``` php
