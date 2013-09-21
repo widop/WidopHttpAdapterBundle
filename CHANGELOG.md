@@ -2,6 +2,7 @@
 
 ### 1.0.2 (????-??-??)
 
+ * 45f58df - Add guzzle support
  * c47befd - Add stream support
 
 ### 1.0.1 (2013-06-18)
