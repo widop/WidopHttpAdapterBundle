@@ -46,7 +46,7 @@ class WidopHttpAdapterExtensionTest extends \PHPUnit_Framework_TestCase
     public function testBuzzService()
     {
         $this->assertInstanceOf(
-            'Widop\HttpAdapterBundle\Model\BuzzHttpAdapter',
+            'Widop\HttpAdapter\BuzzHttpAdapter',
             $this->container->get('widop_http_adapter.buzz')
         );
     }
@@ -54,7 +54,7 @@ class WidopHttpAdapterExtensionTest extends \PHPUnit_Framework_TestCase
     public function testCurlService()
     {
         $this->assertInstanceOf(
-            'Widop\HttpAdapterBundle\Model\CurlHttpAdapter',
+            'Widop\HttpAdapter\CurlHttpAdapter',
             $this->container->get('widop_http_adapter.curl')
         );
     }
@@ -62,7 +62,7 @@ class WidopHttpAdapterExtensionTest extends \PHPUnit_Framework_TestCase
     public function testGuzzleService()
     {
         $this->assertInstanceOf(
-            'Widop\HttpAdapterBundle\Model\GuzzleHttpAdapter',
+            'Widop\HttpAdapter\GuzzleHttpAdapter',
             $this->container->get('widop_http_adapter.guzzle')
         );
     }
@@ -70,7 +70,7 @@ class WidopHttpAdapterExtensionTest extends \PHPUnit_Framework_TestCase
     public function testStreamService()
     {
         $this->assertInstanceOf(
-            'Widop\HttpAdapterBundle\Model\StreamHttpAdapter',
+            'Widop\HttpAdapter\StreamHttpAdapter',
             $this->container->get('widop_http_adapter.stream')
         );
     }
