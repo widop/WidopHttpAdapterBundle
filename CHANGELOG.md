@@ -1,6 +1,6 @@
 # CHANGELOG
 
-### 1.1.0 (????-??-??)
+### 1.1.0 (2013-09-22)
 
  * 61ad749 - Extra business classes
 
