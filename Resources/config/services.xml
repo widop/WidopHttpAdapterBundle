@@ -6,16 +6,18 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd"
 >
     <parameters>
-        <parameter key="widop_http_adapter.buzz.class">Widop\HttpAdapter\BuzzHttpAdapter</parameter>
         <parameter key="widop_http_adapter.curl.class">Widop\HttpAdapter\CurlHttpAdapter</parameter>
-        <parameter key="widop_http_adapter.guzzle.class">Widop\HttpAdapter\GuzzleHttpAdapter</parameter>
         <parameter key="widop_http_adapter.stream.class">Widop\HttpAdapter\StreamHttpAdapter</parameter>
+        <parameter key="widop_http_adapter.buzz.class">Widop\HttpAdapter\BuzzHttpAdapter</parameter>
+        <parameter key="widop_http_adapter.guzzle.class">Widop\HttpAdapter\GuzzleHttpAdapter</parameter>
+        <parameter key="widop_http_adapter.zend.class">Widop\HttpAdapter\ZendHttpAdapter</parameter>
     </parameters>
 
     <services>
-        <service id="widop_http_adapter.buzz" class="%widop_http_adapter.buzz.class%" />
         <service id="widop_http_adapter.curl" class="%widop_http_adapter.curl.class%" />
-        <service id="widop_http_adapter.guzzle" class="%widop_http_adapter.guzzle.class%" />
         <service id="widop_http_adapter.stream" class="%widop_http_adapter.stream.class%" />
+        <service id="widop_http_adapter.buzz" class="%widop_http_adapter.buzz.class%" />
+        <service id="widop_http_adapter.guzzle" class="%widop_http_adapter.guzzle.class%" />
+        <service id="widop_http_adapter.zend" class="%widop_http_adapter.zend.class%" />
     </services>
 </container>
