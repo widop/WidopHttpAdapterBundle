@@ -1,8 +1,12 @@
 # CHANGELOG
 
+### 1.1.1 (????-??-??)
+
+ * 89a55c4 - Add Zend http adapter support
+
 ### 1.1.0 (2013-09-22)
 
- * 61ad749 - Extra business classes
+ * 61ad749 - Extract business classes
 
 ### 1.0.2 (2013-09-22)
 
