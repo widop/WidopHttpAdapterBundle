@@ -4,22 +4,10 @@
 
 In order to use an adapter, you need to request the associated service:
 
-### Buzz
-
-``` php
-$buzzHttpAdapter = $this->container->get('widop_http_adapter.buzz');
-```
-
 ### cURL
 
 ``` php
 $curlHttpAdapter = $this->container->get('widop_http_adapter.curl');
-```
-
-### Guzzle
-
-``` php
-$guzzleHttpAdapter = $this->container->get('widop_http_adapter.guzzle');
 ```
 
 ### Stream
@@ -28,7 +16,25 @@ $guzzleHttpAdapter = $this->container->get('widop_http_adapter.guzzle');
 $streamHttpAdapter = $this->container->get('widop_http_adapter.stream');
 ```
 
-## Make a GET request
+### Buzz
+
+``` php
+$buzzHttpAdapter = $this->container->get('widop_http_adapter.buzz');
+```
+
+### Guzzle
+
+``` php
+$guzzleHttpAdapter = $this->container->get('widop_http_adapter.guzzle');
+```
+
+### Zend
+
+``` php
+$zendHttpAdapter = $this->container->get('widop_http_adapter.zend');
+```
+
+## Make a GET/POST request
 
 Each adapter allows you to make a GET request:
 
@@ -59,5 +65,5 @@ $content = $httpAdapter->postContent($url, $headers);
 If you would like to pass POST datas, you use the third argument:
 
 ``` php
-$content = $httpAdapter->getContent($url, $headers, $data);
+$content = $httpAdapter->postContent($url, $headers, $data);
 ```
