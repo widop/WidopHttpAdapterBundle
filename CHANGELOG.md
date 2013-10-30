@@ -1,6 +1,6 @@
 # CHANGELOG
 
-### 1.1.1 (????-??-??)
+### 1.1.1 (2013-10-30)
 
  * 5c33ffb - Add redirect support
  * 89a55c4 - Add Zend http adapter support
