@@ -1,5 +1,21 @@
 # Usage
 
+## Configure your Adapter
+
+### Max redirects
+
+By default the bundle configures every adapter to follow 5 redirections.
+But you can refine this value in order to match your project needs.
+
+For example, if you want your application to follow 10 redirections, then you can use the following configuration:
+
+``` yaml
+widop_http_adapter:
+    max_redirects: 10
+```
+
+If you want to disable the redirect feature, simply set it to zero.
+
 ## Request your Adapter
 
 In order to use an adapter, you need to request the associated service:
