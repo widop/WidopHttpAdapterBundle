@@ -2,6 +2,7 @@
 
 ### 1.1.1 (????-??-??)
 
+ * 5c33ffb - Add redirect support
  * 89a55c4 - Add Zend http adapter support
 
 ### 1.1.0 (2013-09-22)
