@@ -28,7 +28,27 @@ class WidopHttpAdapterExtension extends Extension
      */
     public function load(array $configs, ContainerBuilder $container)
     {
+        $config = $this->processConfiguration(new Configuration(), $configs);
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.xml');
+
+        $this->loadMaxRedirects($config, $container);
+    }
+
+    /**
+     * Loads the max redirects in all http adapters.
+     *
+     * @param array                                                   $config    The configuration.
+     * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container The container.
+     */
+    private function loadMaxRedirects(array $config, ContainerBuilder $container)
+    {
+        $services = array('buzz', 'curl', 'guzzle', 'stream', 'zend');
+
+        foreach ($services as $service) {
+            $container
+                ->getDefinition(sprintf('widop_http_adapter.%s', $service))
+                ->addMethodCall('setMaxRedirects', array($config['max_redirects']));
+        }
     }
 }
