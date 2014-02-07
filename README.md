@@ -11,8 +11,7 @@ project. Basically, it allows to issue HTTP requests. Currently, the supported a
  - [Guzzle](http://guzzlephp.org/)
  - [Zend](http://framework.zend.com/manual/2.0/en/modules/zend.http.client.html)
 
-Documentation
--------------
+## Documentation
 
  1. [Installation](http://github.com/widop/WidopHttpAdapterBundle/blob/master/Resources/doc/installation.md)
  2. [Usage](http://github.com/widop/WidopHttpAdapterBundle/blob/master/Resources/doc/usage.md)

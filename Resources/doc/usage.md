@@ -52,34 +52,5 @@ $zendHttpAdapter = $this->container->get('widop_http_adapter.zend');
 
 ## Make a GET/POST request
 
-Each adapter allows you to make a GET request:
-
-``` php
-$content = $httpAdapter->getContent($url);
-```
-
-If you would like to pass custom headers, you can use the second argument:
-
-``` php
-$content = $httpAdapter->getContent($url, $headers);
-```
-
-## Make a POST request
-
-Each adapter allows you to make a POST request:
-
-``` php
-$content = $httpAdapter->postContent($url);
-```
-
-If you would like to pass custom headers, you can use the second argument:
-
-``` php
-$content = $httpAdapter->postContent($url, $headers);
-```
-
-If you would like to pass POST datas, you use the third argument:
-
-``` php
-$content = $httpAdapter->postContent($url, $headers, $data);
-```
+Each adapter allows you to make a GET or POST request. Everything is explained
+[here](https://github.com/widop/http-adapter/blob/master/doc/usage.md).
