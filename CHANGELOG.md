@@ -1,6 +1,6 @@
 # CHANGELOG
 
-### 1.2.0 (????-??-??)
+### 1.2.0 (2014-07-20)
 
  * 782c45f - Upgrade widop/http-adapter to 1.1.*
 
