@@ -15,7 +15,7 @@
         }
     ],
     "require": {
-        "symfony/framework-bundle": "2.*",
+        "symfony/framework-bundle": "~2.3|~3.0",
         "widop/http-adapter": "1.1.*"
     },
     "require-dev": {
@@ -23,7 +23,8 @@
         "ext-curl": "*",
         "kriswallsmith/buzz": "*",
         "guzzle/guzzle": "*",
-        "zendframework/zend-http": "*"
+        "zendframework/zend-http": "*",
+        "php": ">=5.5.9"
     },
     "autoload": {
         "psr-0": { "Widop\\HttpAdapterBundle": "" }
