@@ -23,7 +23,8 @@
         "ext-curl": "*",
         "kriswallsmith/buzz": "*",
         "guzzle/guzzle": "*",
-        "zendframework/zend-http": "*"
+        "zendframework/zend-http": "*",
+        "php": ">=5.5.9"
     },
     "autoload": {
         "psr-0": { "Widop\\HttpAdapterBundle": "" }
