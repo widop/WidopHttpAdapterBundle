@@ -10,6 +10,7 @@
         <parameter key="widop_http_adapter.stream.class">Widop\HttpAdapter\StreamHttpAdapter</parameter>
         <parameter key="widop_http_adapter.buzz.class">Widop\HttpAdapter\BuzzHttpAdapter</parameter>
         <parameter key="widop_http_adapter.guzzle.class">Widop\HttpAdapter\GuzzleHttpAdapter</parameter>
+        <parameter key="widop_http_adapter.guzzle6.class">Widop\HttpAdapter\Guzzle6HttpAdapter</parameter>
         <parameter key="widop_http_adapter.zend.class">Widop\HttpAdapter\ZendHttpAdapter</parameter>
     </parameters>
 
@@ -18,6 +19,7 @@
         <service id="widop_http_adapter.stream" class="%widop_http_adapter.stream.class%" />
         <service id="widop_http_adapter.buzz" class="%widop_http_adapter.buzz.class%" />
         <service id="widop_http_adapter.guzzle" class="%widop_http_adapter.guzzle.class%" />
+        <service id="widop_http_adapter.guzzle6" class="%widop_http_adapter.guzzle6.class%" />
         <service id="widop_http_adapter.zend" class="%widop_http_adapter.zend.class%" />
     </services>
 </container>
