@@ -27,7 +27,7 @@ class YamlWidopHttpAdapterExtensionTest extends AbstractWidopHttpAdapterExtensio
      */
     protected function loadConfiguration(ContainerBuilder $container, $configuration)
     {
-        $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/Fixtures/Yaml/'));
-        $loader->load($configuration.'.yml');
+        $loader = new YamlFileLoader($container, new FileLocator(__DIR__ . '/Fixtures/Yaml/'));
+        $loader->load($configuration . '.yml');
     }
 }
